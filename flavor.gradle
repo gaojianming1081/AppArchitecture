@@ -1,0 +1,163 @@
+/*构建版本的维度和第三方App Key等的配置*/
+ext {
+    IS_PRODUCT = isProduct()
+    //以下是buildConfigField配置
+    APPLICATION_ID = getApplicationId()
+    DEFAULT_RUNTIME_URL = getRuntimeUrl()
+    WECHAT_APP_ID = getWechatAppId()
+    WECHAT_APP_SECRET = getWechatAppSecret()
+    QQ_APP_ID = getQQAppId()
+    QQ_APP_SECRET = getQQAppSecret()
+    WEIBO_APP_KEY = getWeiboAppKey()
+    WEIBO_APP_SECRET = getWeiboAppSecret()
+    WEIBO_APP_REDIRECT_URL = getWeiboRedirectUrl()
+    BUGLY_APP_ID = getBuglyAppId()
+    BUGLY_APP_KEY = getBuglyAppKey()
+    UMENG_APP_KEY = getUmengAppKey()
+
+    //以下是manifestPlaceholders配置，
+    // 注意：这个配置的引号转义和buildConfigField配置不同
+    JPUSH_APPKEY = getJPushAppKey()
+    TENCENT_APPID = getTencentAppId()
+    GETUI_APP_ID = getGetuiAppId()
+    GETUI_APP_KEY = getGetuiAppKey()
+    GETUI_APP_SECRET = getGetuiAppSecret()
+    BAIDU_APIKEY = getBaiduApiKey()
+    BAIDU_TTS_APP_KEY = getBaiduTTSAppKey()
+    BAIDU_TTS_APP_SECRET = getBaiduTTSAppSecret()
+    XIAOMI_APP_ID = getXiaomiAppId()
+    XIAOMI_APP_KEY = getXiaomiAppKey()
+    HUAWEI_APP_ID = getHuaweiAppId()
+    OPPO_APP_KEY = getOppoAppKey()
+    OPPO_APP_SECRET = getOppoAppSecret()
+    MEIZU_APP_ID = getMeizuAppId()
+    MEIZU_APP_KEY = getMeizuAppKey()
+
+
+}
+
+
+def isProduct() {
+    def runTasks = gradle.startParameter.taskNames
+    for (String task : runTasks) {
+        if (task.toLowerCase().contains("product")) {
+            return true
+        }
+    }
+    return false
+}
+
+def getApplicationId() {
+    IS_PRODUCT ? "com.hyx.lanzhi" : "com.hyx.debug"
+}
+
+def getRuntimeUrl() {
+    IS_PRODUCT ? "\"product\"" : "\"developer_name\""
+}
+
+def getWechatAppId() {
+    IS_PRODUCT ? "\"wx2ee3495d7342cf9b\"" : "\"wx9aefc9551e2cee70\""
+}
+
+def getWechatAppSecret() {
+    IS_PRODUCT ? "\"6fcf2a46b4a58ffa9c2f4ec18233ac9f\"" : "\"fa8f445aac0a45dbe0ef9758a54d98a6\""
+}
+
+def getQQAppId() {
+    IS_PRODUCT ? "\"1110164305\"" : "\"1110290022\""
+}
+
+def getQQAppSecret() {
+    IS_PRODUCT ? "\"ylF7UI5NAwaSysxX\"" : "\"elSRxPUeSXFBbUvS\""
+}
+
+def getWeiboAppKey() {
+    IS_PRODUCT ? "\"3576127398\"" : "\"2254947528\""
+}
+
+def getWeiboAppSecret() {
+    IS_PRODUCT ? "\"8c18f140a58f0a7fc6f2796ce735dc3f\"" : "\"864cfb5913e75dbb0035b6be5ebfa5c3\""
+}
+
+def getWeiboRedirectUrl() {
+    "\"https://www.huiyinxun.com\""
+}
+
+def getBuglyAppId() {
+    IS_PRODUCT ? "\"7c1223f457\"" : "\"7eef7d5c5a\""
+}
+
+def getBuglyAppKey() {
+    IS_PRODUCT ? "\"0803b52b-379e-4d9f-bd02-de7694677338\"" : "\"08b4b88e-9da8-487f-8f9a-4470383692d7\""
+}
+
+def getUmengAppKey() {
+    IS_PRODUCT ? "\"5e546cc405738a6aa305c540\"" : "\"5e546eac7ba7e954e9f6a684\""
+}
+
+/* =================================== 分割线  ======================================*/
+/* 以下是manifestPlaceholders配置  注意引号转义的使用*/
+
+def getJPushAppKey() {
+    IS_PRODUCT ? "372726f6bb3a34601a10c63f" : "d678471918ac40c69d44ec6e"
+}
+
+def getTencentAppId() {
+    IS_PRODUCT ? "1110164305" : "1110181439"
+}
+
+def getGetuiAppId() {
+    IS_PRODUCT ? "WqVm0FaZzX640GqPveR2g3" : "LrMZuFddA6AYfA6XmyOCe4"
+}
+
+def getGetuiAppKey() {
+    IS_PRODUCT ? "qTto5v0Kko7fWjKLeCkST1" : "NxulXHPQ9f54fRem010IY1"
+}
+
+def getGetuiAppSecret() {
+    IS_PRODUCT ? "VEcqCukvvn8irf5kZU5iy3" : "1TLFlJz70K8cj7N9nnXRU1"
+}
+
+def getBaiduApiKey() {
+    IS_PRODUCT ? "pfWSSkog5T338ngOTzcQI0urXOnAHujI" : "lGFUXhm2OV2P9luDyNPQmlMMhGPqiEIG"
+}
+
+def getBaiduTTSAppKey() {
+    IS_PRODUCT ? "pfWSSkog5T338ngOTzcQI0urXOnAHujI" : "lGFUXhm2OV2P9luDyNPQmlMMhGPqiEIG"
+}
+
+def getBaiduTTSAppSecret() {
+    IS_PRODUCT ? "W28pNV5kzfX6b6dPdAaNQgW8M4j0Gls7" : "rjfE5PtHPS5oZ05gYNsrnNU7xWiUG2zy"
+}
+
+def getXiaomiAppId() {
+    IS_PRODUCT ? "2882303761518325579" : "2882303761518325587"
+}
+
+def getXiaomiAppKey() {
+    IS_PRODUCT ? "5431832524579" : "5171832564587"
+}
+
+def getHuaweiAppId() {
+    IS_PRODUCT ? "101764961" : "101765261"
+}
+
+def getOppoAppKey() {
+    IS_PRODUCT ? "b3671abc07184770ac976d3c2eadfc36" : "6a48c478c3c541289f46a5ba3ecce3b7"
+}
+
+def getOppoAppSecret() {
+    IS_PRODUCT ? "49da3c33e71345309e5a729b21778c12" : "03d0f52aa84c43f4b34d3a839b2465f1"
+}
+
+def getMeizuAppId() {
+    IS_PRODUCT ? "309959" : "322969"
+}
+
+def getMeizuAppKey() {
+    IS_PRODUCT ? "WlUTzYgp6WD8f2qhdeqQ" : "Mpdl6sXWOcpGhVzRAXlk"
+}
+
+
+
+
