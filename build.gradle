@@ -26,7 +26,7 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()//如果 jcenter 很慢，尝试添加 mavenCentral 并调整到jcenter上部
+        mavenCentral()
         maven { url 'https://maven.google.com' }
         maven { url "https://jitpack.io" }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
